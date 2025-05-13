@@ -5,8 +5,9 @@ import { FaCarSide, FaCube, FaEllipsisH, FaExpand, FaHeadphones, FaMoneyBill, Fa
 import ProductsDescriptions from '../components/ProductsDescriptions'
 import { productImage } from '../Products'
 import { useDispatch } from 'react-redux'
-import { addToCart, incrementItem, decrementItem } from '../CartSlice'
+import { addToCart,} from '../CartSlice'
 import { specialProducts } from '../Products'
+import Footer from '../components/Footer'
 
 const Products = () => {
 
@@ -28,13 +29,13 @@ const Products = () => {
   return (
     <div>
       <Navbar />
-      <div className="container mx-auto my-5 px-4 md:px-6 lg:px-8 py-5">
+      <div className="overflow-hidden mx-auto my-5 md:px-6 lg:px-8 py-5 ">
         <div className="grid md:grid-cols-3 gap-4 lg:gap-10">
           {/* First Column  */}
-          <div className="md:mx-10">
+          <div className="mx-auto">
             <div
               className="relative flex justify-center items-center rounded-xl
-             md:w-[466px] md:h-[466px] w-[350px] h-[350px] mx-auto
+             md:w-[466px] md:h-[466px] w-[280px] h-[350px] mx-auto
              border border-gray-500">
               <p className="absolute top-4 left-4 rounded-full px-4 py-1 font-bold text-white bg-[#28221e]">
                 20%
@@ -43,15 +44,15 @@ const Products = () => {
               <FaExpand className="absolute bottom-4 right-4 size-6 cursor-pointer" />
             </div>
 
-            <div className="flex justify-center items-center gap-7">
-              <div className="md:w-[78px] md:h-[75px] w-[66px] h-[66px] rounded-xl border my-5 border-gray-300 hover:border-[#28221e] cursor-pointer">
-                <FaEllipsisH className="w-[30px] h-[40px] mx-auto mt-4 text-gray-400 " />
+            <div className="flex justify-items-center gap-2">
+              <div className=" md:w-[78px] md:h-[75px] w-[40px] h-[56px] rounded-xl lg:border my-5 border-gray-300 hover:border-[#28221e] cursor-pointer">
+                <FaEllipsisH className="w-6 h-7 mx-auto mt-4 text-gray-400 " />
               </div>
               {productImage.map((img, index) =>(
-              <div key={index} className="md:w-[78px] md:h-[75px] w-[66px] h-[66px] rounded-xl border my-5 border-gray-500 hover:border-[#28221e] cursor-pointer">
+              <div key={index} className="md:w-[78px] md:h-[75px] size-[52px] rounded-xl border my-5 border-gray-500 hover:border-[#28221e] cursor-pointer">
                 <img
                   src={img.image}
-                  className="md:w-[30px] h-[40px]  mx-auto mt-4 "
+                  className="md:w-[30px] h-[40px] mx-auto mt-2"
                   onClick={() => setImagesId(img.image)}
                 />
               </div>
@@ -59,30 +60,30 @@ const Products = () => {
             </div>
           </div>
           {/* Second Column */}
-          <div className="mx-auto sm:mx-12">
+          <div className="mx-auto sm:mx-12 px-6">
             <div>
               <h2 className="text-[24px] font-semibold">
                 دانه قهوه باکسی برند Boxilian
               </h2>
-              <p className="text-gray-500 my-4">دانه قهوه | برند : Boxilian</p>
-              <h3 className="text-lg font-bold tracking-tight mt-8">
+              <p className="text-gray-500 text-xl my-4">دانه قهوه | برند : Boxilian</p>
+              <h3 className="text-xl font-bold tracking-tight mt-8">
                 ویژگی های محصول
               </h3>
               <ul className="my-5 tracking-tight">
-                <li className="text-gray-500 text-[15px] my-3">
+                <li className="text-gray-500 text-xl my-3">
                   &gt; جنس محصول:{" "}
                   <span className="text-black">آلومینوم خالص ۱۰۰٪</span>
                 </li>
-                <li className="text-gray-500 text-[15px] my-3">
+                <li className="text-gray-500 text-xl my-3">
                   &gt; کارایی: <span className="text-black"> استفاده روزمره</span>
                 </li>
-                <li className="text-gray-500 text-[15px] my-3">
+                <li className="text-gray-500 text-xl my-3">
                   &gt; اندازه:<span className="text-black"> ۵۰۰ گرم </span>
                 </li>
-                <li className="text-gray-500 text-[15px] my-3">
+                <li className="text-gray-500 text-xl my-3">
                   &gt; نوع محصول:<span className="text-black"> روبوستا</span>
                 </li>
-                <li className="text-gray-500 text-[15px] my-3">
+                <li className="text-gray-500 text-xl my-3">
                   &gt;نوع بسته بندی: <span className="text-black">کاغذی</span>
                 </li>
               </ul>
@@ -90,11 +91,11 @@ const Products = () => {
                 <h3 className="text-[16px] font-bold tracking-tight">
                   یک گزینه را انتخاب کنید:
                 </h3>
-                <div className="flex justify-start items-center gap-3">
-                  <p className="text-[14px] text-gray-400">مقدار:</p>
+                <div className="flex justify-start items-center gap-3 mx-auto">
+                  <p className="text-xl text-gray-400">مقدار:</p>
                   <select
                     name="quantity"
-                    className="w-[207px] h-[50px] my-5 border border-gray-400 px-4 rounded-lg focus:outline-none"
+                    className="w-[207px] h-[50px] text-xl my-5 border border-gray-400 px-4 rounded-lg focus:outline-none"
                   >
                     <option value="1">۱ کیلوگرم</option>
                     <option value="2"> ۲ کیلوگرم</option>
@@ -103,7 +104,7 @@ const Products = () => {
                   </select>
                 </div>
               </div>
-              <div className="my-5 md:w-[570px] md:h-[97px] w-[351px] h-[150px]
+              <div className="my-5 md:w-[570px] md:h-[97px] w-[340px] h-[150px]
                    sm:flex-row sm:justify-between flex flex-col-reverse gap-8 sm:gap-0 items-center
                bg-[#fff8f5] rounded-lg">
                 <div className="flex justify-center items-center">
@@ -138,7 +139,7 @@ const Products = () => {
           {/* Third Column */}
           <div className=" md:mr-30 flex md:flex-col flex-col-reverse items-center gap-4">
             <div className="space-y-4 flex md:flex-col gap-4">
-              <div className="flex justify-start items-center md:w-[317px] md:h-[77px] w-[186px] h-[71px] rounded-xl bg-[#E9E9E8] px-3 py-2">
+              <div className="flex justify-start items-center md:w-[317px] md:h-[77px] w-[170px] h-[71px] rounded-xl bg-[#E9E9E8] px-3 py-2">
                 <FaCarSide className="size-8 text-gray-500 cursor-pointer" />
                 <div className="flex flex-col mx-4">
                   <h3 className="md:text-[16px] text-[12px] font-bold">
@@ -149,7 +150,7 @@ const Products = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex justify-start items-center md:w-[317px] md:h-[77px] w-[186px] h-[71px] rounded-xl bg-[#E9E9E8] px-3 md: py-2">
+              <div className="flex justify-start items-center md:w-[317px] md:h-[77px] w-[170px] h-[71px] rounded-xl bg-[#E9E9E8] px-3 md: py-2">
                 <FaCube className="size-8 text-gray-500 cursor-pointer" />
                 <div className="flex flex-col mx-4">
                   <h3 className="md:text-[16px] text-[12px] font-bold">
@@ -204,13 +205,14 @@ const Products = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#F2E5DA] h-[59px] flex sm:justify-between items-center px-4 md:px-10 lg:px-18">
+      <div className="bg-[#F2E5DA] h-[59px] w-full flex sm:justify-between items-center px-4 md:px-10 lg:px-18">
         <h2 className="sm:text-[18px] font-bold text-[#9E624C]">
           جایگاهی برای نمایش ایونت یا تبلیغ یا اسلوگان
         </h2>
         <p className="w-[27px] h-[27px] bg-[#9E624C] rounded-full"></p>
       </div>
       <ProductsDescriptions/>
+      <Footer/>
     </div>
   );
 }

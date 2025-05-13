@@ -54,7 +54,7 @@ const ProductsDescriptions = () => {
             settings: {
               autoplay: true,
               autoplaySpeed: 3000,
-              slidesToShow: 2,
+              slidesToShow: 1,
               slidesToScroll: 1,
               rows: 1,
               slidesPerRow: 1,
@@ -69,14 +69,13 @@ const ProductsDescriptions = () => {
       const prevSlide = () =>{sliderRef.current.slickPrev();}
 
   return (  
-    <div>
-        <div className='lg:px-10 mb-28'>
-        <div className='mx-auto px-10 py-5 lg:px-12 lg:py-10 lg:my-10 lg:w-[1161px] lg:h-[921px] rounded-xl border border-gray-300'>
-            <ul className='lg:mx-8 lg:my-4 flex gap-6 items-center lg:gap-8 cursor-pointer'>
+        <div className='lg:px-10 mx-auto px-4 py-5'>
+        <div className='mx-auto px-5 py-5 lg:px-12 lg:py-10 lg:my-10 w-[320px] lg:w-[1161px] lg:h-[921px] rounded-xl border border-gray-300'>
+            <ul className='lg:mx-8 lg:my-4 flex gap-4 items-center lg:gap-8 cursor-pointer'>
             {tabs.map((tab, index) => (
                 <li key={index} 
                 onClick={() => setActiveTab(index)} 
-                className={` lg:text-lg font-semibold ${ activeTab === index 
+                className={` lg:text-lg font-bold text-xs tracking-tight ${ activeTab === index 
                   ? 'text-amber-900 border-b-2 border-0'
                    : 'text-gray-500'}`} >{tab.label}</li>
               ))}
@@ -105,16 +104,16 @@ const ProductsDescriptions = () => {
                 </div>
             </div>
             <div className="flex justify-center items-center my-4 sm:my-5 sm:gap-8 mb-12">
-            <button className="mr-2 px-2 py-2 text-[8px] sm:text-xl sm:px-3 
+            <button className="hidden lg:block mr-2 px-2 py-2 text-[8px] sm:text-xl sm:px-3 
             sm:py-3 bg-[#f2e5da] rounded-2xl cursor-pointer hover:bg-[#28121e] hover:text-white">
               <FaGreaterThan onClick={nextSlide} />
             </button>
             <div className="relative overflow-hidden">
               <Slider ref={sliderRef} {...settings}>
                 {specialProducts.map((spec, index) => (
-                  <div key={index} className=" lg:px-6">
-                    <div className="border text-center border-gray-400 lg:px-8 lg:mx-12 rounded-xl lg:w-[310px] lg:h-[400px]
-                           px-2 w-[165px] h-[203px] hover:bg-orange-200 hover:scale-105 duration-300 ease-in-out">
+                  <div key={index} className="lg:px-6 mx-auto px-3">
+                    <div className="border mx-auto text-center border-gray-400 lg:px-8 lg:mx-12 rounded-xl lg:w-[310px] lg:h-[400px]
+                           px-4 w-[270px] h-[280px] hover:bg-orange-200 hover:scale-105 duration-300 ease-in-out">
                       <div className="hidden lg:flex justify-start items-center">
                         <p className="text-center mt-2 mx-2 sm:mt-5 bg-black rounded-full px-3 py-1 text-white ">
                           {spec.discount}٪
@@ -124,9 +123,9 @@ const ProductsDescriptions = () => {
                       <img
                         src={spec.image}
                         alt="special products"
-                        className=" lg:w-[149px] lg:h-[210px] w-[96px] px-4 py-2 mx-auto my-3 "
+                        className=" lg:w-[149px] lg:h-[210px] w-[160px] px-4 py-2 mx-auto my-3 "
                       />
-                      <h2 className="text-bold text-[12px] text-end text-black tracking-tighter mx-2 my-3">
+                      <h2 className="text-bold text-xl text-end text-black tracking-tighter mx-2 my-3">
                         {spec.name}
                       </h2>
                       <div className="hidden lg:flex justify-between items-center px-2">
@@ -146,14 +145,12 @@ const ProductsDescriptions = () => {
                 ))}
               </Slider>
             </div>
-            <button className="px-2 ml-2 py-2 text-[8px] hover:bg-[#28121e] hover:text-white
+            <button className="hidden lg:block px-2 ml-2 py-2 text-[8px] hover:bg-[#28121e] hover:text-white
              sm:text-xl sm:px-3 sm:py-3 bg-[#f2e5da] rounded-2xl cursor-pointer">
               <FaLessThan onClick={prevSlide} />
             </button>
           </div>
       </div>
-      <Footer/>
-    </div>
   )
 }
 

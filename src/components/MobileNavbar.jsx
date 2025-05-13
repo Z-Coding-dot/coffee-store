@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaTimes } from 'react-icons/fa'
 import logo from '../assets/images/Logo.png';
+import { Link } from 'react-router-dom';
 
 const MobileNavbar = ({ open, setOpen }) => {
   return (
@@ -9,17 +10,20 @@ const MobileNavbar = ({ open, setOpen }) => {
        rounded transition-all duration-1000 ease-in-out`} >
            
         <div className='flex justify-between items-center py-5 px-8'>
+          <Link to={'/'}>
           <img src={logo} alt="logo" className="w-[120px] h-[45px]" />
+          </Link>
           <FaTimes onClick={() => setOpen(false)} className='text-xl cursor-pointer text-black'/>
         </div> <hr />
 
         <ul className="flex py-5 px-8 flex-col gap-4">
+          <Link to={'/'}>
           <li className='hover:bg-amber-50 rounded-full p-4'>
             <a href="#" className="text-[16px] text-black">
-              {" "}
               ●صفحه اصلی
             </a>
           </li>
+          </Link>
           <select className="text-[16px] text-black  text-right">
             <option className=" text-black">لیست محصولات</option>
             <option className=" text-black"> قیمت ها</option>
