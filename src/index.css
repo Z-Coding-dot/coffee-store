@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: Tanha;
+    src: url('./assets/fonts/Tanha.eot');
+    src: url('./assets/fonts/Tanha.eot?#iefix') format('embedded-opentype'),
+         url('./assets/fonts/Tanha.woff') format('woff'),
+         url('./assets/fonts/Tanha.ttf') format('truetype');
+    font-weight: normal;
+}
+ body{
+    font-family: 'Tanha';
+ }
